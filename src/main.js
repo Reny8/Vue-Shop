@@ -4,11 +4,13 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 import Sample from './pages/Sample.vue';
 import Home from './pages/Home.vue';
-
+import Cart from './pages/Cart.vue';
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: '/', component: Home },
+    { path: '/', redirect: '/products' },
+    { path: '/products', component: Home },
+    { path: '/cart', component: Cart },
     {
       path: '/sample',
       component: Sample,

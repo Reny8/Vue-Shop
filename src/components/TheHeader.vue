@@ -5,8 +5,9 @@
     </div>
 
     <div class="navigation-container">
-      <button>products</button>
-      <button>cart</button>
+      <router-link to="/products"> <button>products</button></router-link>
+      <router-link to="/cart"> <button>cart</button></router-link>
+
       <p>{{ cartItemsAmount }}</p>
     </div>
 
