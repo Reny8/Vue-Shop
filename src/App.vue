@@ -1,5 +1,5 @@
 <template>
-  <TheHeader title="Vue Project" />
+  <TheHeader title="VueShop" />
   <router-view></router-view>
 </template>
 
