@@ -23,7 +23,7 @@ export default {
   props: ['title'],
   computed: {
     cartItemsAmount() {
-      return this.$store.state.cartItems;
+      return this.$store.state.cartItemsAmount;
     },
   },
 };
@@ -81,5 +81,8 @@ button {
 button:hover {
   cursor: pointer;
   border-bottom: solid 1px rgb(95, 0, 95);
+}
+.router-link-active {
+  border-bottom: solid 2px rgb(95, 0, 95);
 }
 </style>

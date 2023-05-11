@@ -21,7 +21,8 @@ const router = createRouter({
 const store = createStore({
   state() {
     return {
-      cartItems: 0,
+      cartItemsAmount: 0,
+      cartProducts: [],
       products: [
         {
           id: 1,
@@ -56,6 +57,10 @@ const store = createStore({
     incrementCartItems(state, payload) {
       state.cartItems += payload.value;
     },
+    addItemToCart(state, payload) {
+      state.cartProducts.push(payload)
+      console.log(state.cartProducts)
+    }
   },
 });
 const app = createApp(App);

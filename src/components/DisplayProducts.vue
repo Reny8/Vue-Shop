@@ -10,7 +10,7 @@
         </div>
       </div>
       <div class="bottom-container">
-        <button>add to cart</button>
+        <button @click="addToCart(item)">add to cart</button>
       </div>
     </div>
   </section>
@@ -23,6 +23,11 @@ export default {
     return {
       items: this.$store.state.products,
     };
+  },
+  methods: {
+    addToCart(item) {
+      this.$store.commit('addItemToCart', { item });
+    },
   },
 };
 </script>
