@@ -34,7 +34,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 3rem;
+  padding: 1.5rem 2rem;
 }
 h1 {
   margin: 0rem;
@@ -42,7 +42,7 @@ h1 {
 }
 div.access-container button {
   border: solid 1px rgb(95, 0, 95);
-  background-color: transparent;
+  background-color: white;
   border-radius: 40px;
   padding: 0.5rem 2rem;
 }
@@ -51,6 +51,7 @@ div.access-container button:hover {
   color: white;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  transition-duration: 500ms;
 }
 p {
   color: white;
