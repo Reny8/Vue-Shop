@@ -26,7 +26,7 @@
       <tbody>
         <tr>
           <td>
-            {{ total }}
+            <h3>Final Total Due: $ {{ total }}</h3>
           </td>
         </tr>
       </tbody>
@@ -56,6 +56,7 @@ div {
   flex-direction: column;
   justify-content: center;
   margin: 2rem;
+  gap: 2rem;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
     rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
@@ -63,13 +64,30 @@ div {
 }
 table {
   width: 100%;
-  border-radius: 5px;
   border-collapse: collapse;
   text-align: left;
 }
-table,
-th,
-td {
+table:last-child > td {
+  text-align: center;
+  border: none;
+}
+table:last-child {
+  background-color: rgb(95, 0, 95);
+  color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 7px -1px,
+    rgba(0, 0, 0, 0.14) 0px 1px 1px 0px, rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+}
+table:last-child,
+table:last-child td,
+table:last-child th {
+  border: none;
+}
+h3 {
+  margin: 0.5rem;
+}
+table:first-child,
+table:first-child th,
+table:first-child td {
   border: solid 1px #b4b4b4;
   padding: 0.5rem;
 }
