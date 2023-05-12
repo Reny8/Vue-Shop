@@ -59,7 +59,7 @@ const store = createStore({
   },
   mutations: {
     incrementCartItems(state, payload) {
-      if (payload.quanity) {
+      if (payload.quantity) {
         state.cartItemsAmount += payload.quantity;
       } else {
         state.cartItemsAmount += 1;
@@ -73,14 +73,15 @@ const store = createStore({
       if (state.cartProducts.length === 0) {
         state.cartProducts.push(payload);
       }
-      state.cartProducts.forEach((product) => {
-        if (product.item.id === payload.item.id) {
-          payload.item.quantity++;
-        } else {
-          state.cartProducts.push(payload);
-          payload.item.quantity++;
-        }
-      });
+      const findItem = state.cartProducts.find(
+        (product) => product.item.id === payload.item.id
+      );
+      if (findItem) {
+        payload.item.quantity++;
+      } else {
+        payload.item.quantity++;
+        state.cartProducts.push(payload);
+      }
       store.commit('incrementTotal', payload);
       console.log(state.cartProducts);
     },

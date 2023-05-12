@@ -11,7 +11,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(product, index) in products" :key="index * 3">
+        <tr v-for="product in products" :key="product.item.id">
           <td><img :src="product.item.image" /></td>
           <td>{{ product.item.productName }}</td>
           <td>
