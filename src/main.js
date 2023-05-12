@@ -58,16 +58,16 @@ const store = createStore({
     };
   },
   mutations: {
-    incrementCartItems(state, payload) {
+    incrementCartItems(state, payload, value = 1) {
       if (payload.quantity) {
         state.cartItemsAmount += payload.quantity;
       } else {
-        state.cartItemsAmount += 1;
+        state.cartItemsAmount += value;
       }
     },
     incrementTotal(state, payload) {
       state.totalPrice += payload.item.price;
-      state.totalPrice = parseFloat(state.totalPrice.toFixed(2))
+      state.totalPrice = parseFloat(state.totalPrice.toFixed(2));
     },
     addItemToCart(state, payload) {
       if (state.cartProducts.length === 0) {

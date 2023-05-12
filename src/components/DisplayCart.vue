@@ -18,7 +18,9 @@
             <p>{{ product.item.description }}</p>
           </td>
           <td>$ {{ product.item.price }}</td>
-          <td><input type="number" :value="product.item.quantity" /></td>
+          <td>
+            <p>{{ product.item.quantity }}</p>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -45,6 +47,11 @@ export default {
       products: this.$store.state.cartProducts,
       total: this.$store.state.totalPrice,
     };
+  },
+  methods: {
+    adjustItems(product, newQuantity) {
+      this.$store.dispatch('updateQuantity', product, newQuantity);
+    },
   },
 };
 </script>
@@ -109,12 +116,5 @@ th:nth-child(4) {
 th:last-child {
   width: 5rem;
   text-align: center;
-}
-input {
-  width: 2rem;
-}
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
-  opacity: 1;
 }
 </style>
