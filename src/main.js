@@ -22,6 +22,7 @@ const store = createStore({
   state() {
     return {
       cartItemsAmount: 0,
+      totalPrice: 0,
       cartProducts: [],
       products: [
         {
@@ -64,19 +65,23 @@ const store = createStore({
         state.cartItemsAmount += 1;
       }
     },
+    incrementTotal(state, payload) {
+      state.totalPrice += payload.item.price
+      Math.round(state.totalPrice)
+    },
     addItemToCart(state, payload) {
       if (state.cartProducts.length === 0) {
-        state.cartProducts.push(payload)
+        state.cartProducts.push(payload);
       }
       state.cartProducts.forEach((product) => {
         if (product.item.id === payload.item.id) {
           payload.item.quantity++;
         } else {
           state.cartProducts.push(payload);
-          payload.item.quantity++
+          payload.item.quantity++;
         }
       });
-      console.log(state.cartProducts);
+      store.commit('incrementTotal', payload);
     },
   },
 });
