@@ -22,7 +22,6 @@ export default {
   data() {
     return {
       items: this.$store.state.products,
-      cartItems: this.$store.state.cartProducts,
     };
   },
   methods: {

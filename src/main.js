@@ -66,8 +66,8 @@ const store = createStore({
       }
     },
     incrementTotal(state, payload) {
-      state.totalPrice += payload.item.price
-      Math.round(state.totalPrice)
+      state.totalPrice += payload.item.price;
+      Math.round(state.totalPrice);
     },
     addItemToCart(state, payload) {
       if (state.cartProducts.length === 0) {
@@ -82,6 +82,7 @@ const store = createStore({
         }
       });
       store.commit('incrementTotal', payload);
+      console.log(state.cartProducts);
     },
   },
 });
