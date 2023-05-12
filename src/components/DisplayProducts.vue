@@ -22,10 +22,12 @@ export default {
   data() {
     return {
       items: this.$store.state.products,
+      cartItems: this.$store.state.cartProducts,
     };
   },
   methods: {
     addToCart(item) {
+      this.$store.commit('incrementCartItems', item.quantity);
       this.$store.commit('addItemToCart', { item });
     },
   },

@@ -32,6 +32,7 @@ const store = createStore({
           price: 99.99,
           description:
             'A collection of must-read books. All-time classics included!',
+          quantity: 0,
         },
         {
           id: 2,
@@ -40,6 +41,7 @@ const store = createStore({
             'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Tent_at_High_Shelf_Camp_cropped.jpg/640px-Tent_at_High_Shelf_Camp_cropped.jpg',
           price: 129.99,
           description: 'A tent for the ambitious outdoor tourist.',
+          quantity: 0,
         },
         {
           id: 3,
@@ -49,18 +51,33 @@ const store = createStore({
           price: 6.99,
           description:
             'May be partially expired when it arrives but at least it is cheap!',
+          quantity: 0,
         },
       ],
     };
   },
   mutations: {
     incrementCartItems(state, payload) {
-      state.cartItems += payload.value;
+      if (payload.quanity) {
+        state.cartItemsAmount += payload.quantity;
+      } else {
+        state.cartItemsAmount += 1;
+      }
     },
     addItemToCart(state, payload) {
-      state.cartProducts.push(payload)
-      console.log(state.cartProducts)
-    }
+      if (state.cartProducts.length === 0) {
+        state.cartProducts.push(payload)
+      }
+      state.cartProducts.forEach((product) => {
+        if (product.item.id === payload.item.id) {
+          payload.item.quantity++;
+        } else {
+          state.cartProducts.push(payload);
+          payload.item.quantity++
+        }
+      });
+      console.log(state.cartProducts);
+    },
   },
 });
 const app = createApp(App);
