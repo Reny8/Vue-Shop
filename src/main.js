@@ -67,7 +67,7 @@ const store = createStore({
     },
     incrementTotal(state, payload) {
       state.totalPrice += payload.item.price;
-      Math.round(state.totalPrice);
+      state.totalPrice = parseFloat(state.totalPrice.toFixed(2))
     },
     addItemToCart(state, payload) {
       if (state.cartProducts.length === 0) {
@@ -83,7 +83,6 @@ const store = createStore({
         state.cartProducts.push(payload);
       }
       store.commit('incrementTotal', payload);
-      console.log(state.cartProducts);
     },
   },
 });

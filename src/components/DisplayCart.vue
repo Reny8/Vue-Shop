@@ -22,9 +22,18 @@
         </tr>
       </tbody>
     </table>
-    <!-- <section v-else>
+    <table v-if="products.length">
+      <tbody>
+        <tr>
+          <td>
+            {{ total }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <section v-else>
       <h1>NO ITEMS CURRENTLY IN YOUR CART</h1>
-    </section> -->
+    </section>
   </div>
 </template>
 
@@ -34,6 +43,7 @@ export default {
   data() {
     return {
       products: this.$store.state.cartProducts,
+      total: this.$store.state.totalPrice,
     };
   },
 };
@@ -60,7 +70,7 @@ table {
 table,
 th,
 td {
-  border: solid 1px;
+  border: solid 1px #b4b4b4;
   padding: 0.5rem;
 }
 img {
